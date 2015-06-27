@@ -35,7 +35,16 @@ db.bind('users').bind({
   }
 });
 
+db.bind('balance').bind({
+  findAll: function findAll(userId, callback) {
+    var query = { userId: userId };
+    this.find(query)
+      .toArray(callback);
+  }
+});
+
 
 Promise.promisifyAll(db.users);
+Promise.promisifyAll(db.balance);
 
 module.exports = db;

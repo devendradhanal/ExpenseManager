@@ -24,6 +24,12 @@ module.exports = {
     authToken: {
       validationError: 11301,
     },
+  },
+
+  balance: {
+    index: {
+      unspecifiedError : 11401
+    }
   }
 
 };
