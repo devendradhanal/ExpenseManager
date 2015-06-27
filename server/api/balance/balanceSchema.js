@@ -13,18 +13,9 @@ balanceSchema = Joi.object().keys({
 function _itemToApiJson(balanceObject) {
   balanceObject = balanceObject || {};
 
-  _.chain(balanceObject)
-    .omit('_id', 'userId')
-    .mapValues(function (val, key) {
-      console.log(val, key);
-      // return 'document' === key ? _.chain(val).assign({ id: val._id }).omit('_id').value() : val;
-    });
-
   return _.chain(balanceObject)
     .omit('_id', 'userId')
-    .mapValues(function (val, key) {
-      return 'document' === key ? _.chain(val).assign({ id: val._id }).omit('_id').value() : val;
-    })
+    .assign({ id: balanceObject._id })
     .value();
 }
 
