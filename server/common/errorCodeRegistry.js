@@ -28,7 +28,8 @@ module.exports = {
 
   balance: {
     index: {
-      unspecifiedError : 11401
+      invalidQueryParams: 11401,
+      unspecifiedError  : 11402
     }
   }
 

@@ -21,7 +21,7 @@ routes = [
           userId : Joi.string().required().description('Id of the user whose balance we are requesting')
         },
         failAction: function (req, reply, source, error) {
-          var details = { code: errorCodes.balance.index.unspecifiedError, message: error.message };
+          var details = { code: errorCodes.balance.index.invalidQueryParams, message: error.message };
           reply(req.server.methods.createErrObject(400, error.message, details, error));
         }
       }
