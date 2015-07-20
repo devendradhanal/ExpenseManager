@@ -16,6 +16,6 @@ module.exports.create = function login(req, reply) {
       reply(usersSchema.toAuthJson(user, headers.deviceid));
     })
     .catch(function (err) {
-      reply(req.server.methods.createErrObject(401, 'Login failed', err));
+      reply(boom.create(401, 'Login failed', err));
     });
 };
